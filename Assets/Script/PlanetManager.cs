@@ -5,26 +5,35 @@ using UnityEngine;
 
 public class PlanetManager : MonoBehaviour 
 {
-	[SerializeField]List<GameObject>Planets;
-    Vector3 Gravity = new Vector3(0, 0, 0);
-    double ConstanteG = 6.67 * Mathf.Pow(10,-11);
+    [SerializeField]GameObject Planet;
+    Vector3 Gravity;
     [SerializeField]
-    float SunMass;
+    Vector3 Direction;
+    Vector3 Distance;
+    Vector3 ConstanteG = new Vector3(6,0,0);
     [SerializeField]
-    float EarthMass;
-    [SerializeField]
-    float MoonMass;
+    float Mass;
+    [SerializeField]float PlanetMass;
+
+    void Awake()
+    {
+        
+    }
+
     void Start ()
 	{
-		
-	}
+		    
+    }
 	
-
 	void Update () 
 	{
-        foreach(GameObject planet in Planets)
-        {
-            transform.position = (ConstanteG * (SunMass * EarthMass)) / Vector3.Distance();
-        }
-	}
+       
+    }
+    void FixedUpdate()
+    {
+        Distance = (Planet.transform.position - transform.position);
+        Gravity = (Distance * (PlanetMass * Mass) / Mathf.Pow(
+            (transform.position - Planet.transform.position).magnitude, 2.0f));
+        transform.position += Direction + Gravity * Time.deltaTime;
+    }
 }
