@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SunManager : MonoBehaviour 
 {
-	[SerializeField]float Mass;
-
 	void Start () 
 	{
 		

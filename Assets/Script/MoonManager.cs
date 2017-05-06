@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class MoonManager : MonoBehaviour 
 {
-	[SerializeField]float Mass;
 
-	void Start () {
+    [SerializeField]
+    Vector3 direction;
+
+	void Start ()
+    {
 		
 	}
 	
@@ -15,4 +18,8 @@ public class MoonManager : MonoBehaviour
 	{
 		
 	}
+    void FixedUpdate()
+    {
+        transform.position = transform.position + direction;
+    }
 }

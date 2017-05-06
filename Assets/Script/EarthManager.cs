@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EarthManager : MonoBehaviour 
 {
-	[SerializeField]float Mass;
-
-	void Start () 
+    [SerializeField]
+    Vector3 direction;
+    void Start () 
 	{
 		
 	}
@@ -14,6 +14,10 @@ public class EarthManager : MonoBehaviour
 
 	void Update () 
 	{
-		
+        
 	}
+    void FixedUpdate()
+    {
+        transform.position = transform.position + direction;
+    }
 }
