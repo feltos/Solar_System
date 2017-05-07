@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// //////////////NE MARCHE QUE SUR LE PREMIER QUART DE ROTATION/////////////////////
+/// </summary>
 
 public class PlanetManager : MonoBehaviour 
 {
@@ -31,7 +33,9 @@ public class PlanetManager : MonoBehaviour
     void FixedUpdate()
     {
         Distance = (Planet.transform.position - transform.position).normalized;
+        ////////////////demandé a phillipe car complétement bloqué sans///////////////////
         Velocity = Distance * (PlanetMass * Mass) / Mathf.Pow((transform.position - Planet.transform.position).magnitude,2.0f);
+        //////////////////////////////////////////////////////////////////////////////////     
         transform.position += Velocity * Time.deltaTime + Direction;  
     }
 }
